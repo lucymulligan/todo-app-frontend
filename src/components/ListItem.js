@@ -4,8 +4,8 @@ class ListItem extends Component {
     render() {
         return (
             <li>{this.props.task}
-            <button>Done</button>
-            <button>Delete</button></li>
+            <button type="button" class="btn btn-success">Complete</button>
+            <button type="button" class="btn btn-danger">Delete</button></li>
         );
     }
 }

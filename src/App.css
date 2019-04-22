@@ -2,3 +2,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
 }
+
+ListItem {
+  padding: 15px;
+  text-align: center;
+  color: grey;
+
+}
