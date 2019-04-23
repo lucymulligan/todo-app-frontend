@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
       <Nav text="Welcome to your toDo application!"/>
-      <Nav text="Read more about it"/>
+
       <AddItem />
         <h4>Here's just a list of things that need to get done.</h4>
         <h5>Let's work together through each task</h5>
