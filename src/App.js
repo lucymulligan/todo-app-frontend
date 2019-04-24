@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './components/Nav';
 import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
+import Header from './components/Header';
 
 const toDoListItems = [
   "Garden the plants",
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Header />
       <Nav text="Welcome to your toDo application!"/>
 
       <AddItem />
