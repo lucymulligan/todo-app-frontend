@@ -11,7 +11,7 @@ class ListItem extends React.Component {
                     <button type="button" className="btn btn-success">Complete</button>
                     </div>
                 <div className="col-2">
-                    <button type="button" className="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         );

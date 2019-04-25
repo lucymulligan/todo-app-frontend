@@ -6,10 +6,13 @@ class addItem extends React.Component {
     }
 
     handleChange = (event) => {
-        console.log('Recieved an event!');
         this.setState({
             text: event.target.value
         })
+    }
+
+    handleClick = () => {
+        console.log(this.state.text)
     }
 
     render() {
@@ -19,7 +22,7 @@ class addItem extends React.Component {
                 <input type="text" id="inputNewToDo" placeholder="Enter your new task here..." value = {this.state.text} onChange={this.handleChange}/>
                 <label for="urgent"><input id="Urgent" type="radio" name="urgent-important" /> Urgent </label>
                 <label for="important"><input id="important" type="radio" name="indoor-important" /> High Priority</label>
-                <button type="button">Add</button>
+                <button onClick={this.handleClick}>Add</button>
             </div>
         );
     }

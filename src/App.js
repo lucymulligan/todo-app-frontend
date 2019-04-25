@@ -6,16 +6,29 @@ import Header from './components/Header';
 import Nav from './components/Nav';
 import TaskCounter from './components/TaskCounter';
 
-const toDoListItems = [
-  "Garden the plants",
-  "Make an omlette",
-  "Bath the cat",
-  "Download some music",
-  "Book some train tickets",
-  "Call Mum",
-  "Do the shopping",
-]
+
 class App extends React.Component {
+
+  state = {
+    tasks: [
+      "Garden the plants",
+      "Make an omlette",
+      "Bath the cat",
+      "Download some music",
+      "Book some train tickets",
+      "Call Mum",
+      "Do the shopping",
+    ]
+  }
+
+  addTask = (newTask) => {
+    const newTasks = this.state.tasks.slice(); 
+    newTasks.push(newTask);
+    this.setState({
+      tasks: newTasks
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,13 +37,13 @@ class App extends React.Component {
           <Nav />
         </div>
         <div className="Row">
-          <TaskCounter count={toDoListItems.length} /></div>
+          <TaskCounter count={this.state.tasks.length} /></div>
         <div className="Row">
           <AddItem />
           <div className="Row">
             <div className="Container">
               {
-                toDoListItems.map(function (toDoListItems, i) {
+                this.state.tasks.map(function (toDoListItems, i) {
                   return <ListItem task={toDoListItems} />;
                 })}
             </div>
