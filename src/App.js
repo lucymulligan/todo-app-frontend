@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Nav from './components/Nav';
 import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
 import Header from './components/Header';
+import Nav from './components/Nav';
+import TaskCounter from './components/TaskCounter';
 
 const toDoListItems = [
   "Garden the plants",
@@ -13,24 +14,27 @@ const toDoListItems = [
   "Book some train tickets",
   "Call Mum"
 ]
-
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
-      <Header />
-      <Nav text="Welcome to your toDo application!"/>
-
+      <div className= "Row">
+      <Header /> 
+      <Nav />
+      </div>
+      <div className="Row">
+      <TaskCounter count={toDoListItems.length} /></div>
+      <div className = "Row"> 
       <AddItem />
-        <h4>Here's just a list of things that need to get done.</h4>
-        <h5>Let's work together through each task</h5>
+      <div className="Row">
         <ul>
           {toDoListItems.map(function (item) {
             return <ListItem task={item} />;
           })}
-        </ul>
+          </ul>
+          </div> 
       </div>
-    
+    </div> 
     );
   }
 }
