@@ -11,19 +11,20 @@ class App extends React.Component {
 
   state = {
     tasks: [
-      "Garden the plants",
-      "Make an omlette",
-      "Bath the cat",
-      "Download some music",
-      "Book some train tickets",
-      "Call Mum",
-      "Do the shopping",
+      {task: 'Garden the plants', completed: false},
+      {task: 'Bath the cat', completed: false},
+      {task: 'Download some music', completed: false},
+      {task: 'Book the train tickets', completed: false},
+      {task: 'Call Mum', completed: false},
+      {task: 'Do the Shopping', completed: true},
+      {task: 'Mop up', completed: true},
     ]
   }
 
   addTask = (newTask) => {
     const newTasks = this.state.tasks.slice(); 
-    newTasks.push(newTask);
+    const taskObject = {task: newTask, completed: false}
+    newTasks.push(taskObject);
     this.setState({
       tasks: newTasks
     });
@@ -32,24 +33,26 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="Row">
+        <div className="row">
           <Header />
           <Nav />
         </div>
-        <div className="Row">
+        <div className="row">
           <TaskCounter count={this.state.tasks.length} /></div>
-        <div className="Row">
+          <div className="container">        
+          <div className="row">
           <AddItem addTask={this.addTask} />
-          <div className="Row">
-            <div className="Container">
+          </div>
+          <div className="row">
+            <div className="container">
               {
-                this.state.tasks.map(function (toDoListItems, i) {
-                  return <ListItem task={toDoListItems} />;
+                this.state.tasks.map(function (item, i) {
+                  return <ListItem key ={i} task={item} />;
                 })}
+            </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

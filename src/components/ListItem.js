@@ -5,13 +5,13 @@ class ListItem extends React.Component {
         return (
             <div className="row">
                 <div className="col-6">
-                    {this.props.task}
-                    </div>
+                {this.props.task.task}
+                </div>
                 <div className="col-3">
-                    <button type="button" className="btn btn-success">Complete</button>
-                    </div>
+                {this.props.task.completed ? <button>Well done!</button> : <button>Complete</button>}
+                </div>
                 <div className="col-3">
-                    <button type="button" class="btn btn-danger">Delete</button>
+                {this.props.task.completed ? null : <button>Delete</button>}
                 </div>
             </div>
         );
