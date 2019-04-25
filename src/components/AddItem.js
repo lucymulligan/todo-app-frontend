@@ -12,7 +12,11 @@ class addItem extends React.Component {
     }
 
     handleClick = () => {
-        console.log(this.state.text)
+        const newTask = this.state.text; 
+        this.props.addTask(newTask)
+        this.setState({
+            text: ''
+        })
     }
 
     render() {
