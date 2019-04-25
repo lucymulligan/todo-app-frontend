@@ -12,29 +12,31 @@ const toDoListItems = [
   "Bath the cat",
   "Download some music",
   "Book some train tickets",
-  "Call Mum"
+  "Call Mum",
+  "Do the shopping",
 ]
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-      <div className= "Row">
-      <Header /> 
-      <Nav />
+        <div className="Row">
+          <Header />
+          <Nav />
+        </div>
+        <div className="Row">
+          <TaskCounter count={toDoListItems.length} /></div>
+        <div className="Row">
+          <AddItem />
+          <div className="Row">
+            <div className="Container">
+              {
+                toDoListItems.map(function (toDoListItems, i) {
+                  return <ListItem task={toDoListItems} />;
+                })}
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="Row">
-      <TaskCounter count={toDoListItems.length} /></div>
-      <div className = "Row"> 
-      <AddItem />
-      <div className="Row">
-        <ul>
-          {toDoListItems.map(function (item) {
-            return <ListItem task={item} />;
-          })}
-          </ul>
-          </div> 
-      </div>
-    </div> 
     );
   }
 }

@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ListItem extends Component {
+class ListItem extends React.Component {
     render() {
         return (
-            <div className="Row" col-6>
-            <li>{this.props.task}
-            <button type="button" class="btn btn-success" col-3>Complete</button>
-            <button type="button" class="btn btn-danger" col-3>Delete</button></li>
-
+            <div className="Row">
+                <div className="col-8">
+                    {this.props.task}
+                    </div>
+                <div className="col-2">
+                    <button type="button" className="btn btn-success">Complete</button>
+                    </div>
+                <div className="col-2">
+                    <button type="button" className="btn btn-danger">Delete</button>
+                </div>
             </div>
         );
     }
