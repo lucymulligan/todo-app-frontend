@@ -1,20 +1,13 @@
-import React from 'react';
+import React, { Component} from 'react';
+import './Header.css';
 
-class Header extends React.Component {
+class Header extends Component {
 
     render() {
 
-        return <h1 className='mainHeader' style={styles.header}>my toDo Application</h1>
-    }
-
-}
-
-const styles = {
-    header: {
-        color: "grey",
-        margin: 'auto',
-        fontWeight: 600
+        return <h1 className='mainHeader'>my toDo Application</h1>
     }
 }
+
 
 export default Header

@@ -7,7 +7,10 @@ class ListItem extends React.Component {
 
     };
 
+    handleCompleteClick = () => {
+        this.props.markTaskCompleted(this.props.id);
 
+    };
 
 
     render() {
@@ -17,7 +20,7 @@ class ListItem extends React.Component {
                     {this.props.task.task}
                 </div>
                 <div className="col-3">
-                    {this.props.task.completed ? <button class="btn btn-success">Completed :)</button> : <button class="btn btn-info">To Complete</button>}
+                    {this.props.task.completed ? <button class="btn btn-success">Completed :)</button> : <button onClick={this.handleCompleteClick} class="btn btn-info">To Complete</button>}
                 </div>
                 <div className="col-3">
                     {this.props.task.completed ? null : <button onClick={this.handleDeleteClick} class="btn btn-dark">Delete</button>}

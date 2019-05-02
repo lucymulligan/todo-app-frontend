@@ -46,6 +46,18 @@ class App extends React.Component {
     });
   };
 
+  markTaskCompleted = id => {
+    const updatedTasks = this.state.tasks.map((item) => {
+      if (item.id === id) {
+        item.completed = true; 
+      }
+      return item; 
+    })
+    this.setState({
+      tasks: updatedTasks
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -68,6 +80,7 @@ class App extends React.Component {
                   id={item.id}
                   deleteTask={this.deleteTask}
                   key={i} 
+                  markTaskCompleted={this.markTaskCompleted}
                   task={item} />;
                 })}
             </div>
