@@ -4,14 +4,16 @@ class Header extends React.Component {
 
     render() {
 
-        return <h1 style = {styles.header}>my toDo Application</h1>
+        return <h1 className='mainHeader' style={styles.header}>my toDo Application</h1>
     }
 
 }
 
-const styles =  {
-    header : {
+const styles = {
+    header: {
         color: "grey",
+        margin: 'auto',
+        fontWeight: 600
     }
 }
 

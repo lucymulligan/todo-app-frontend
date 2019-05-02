@@ -5,54 +5,75 @@ import ListItem from './components/ListItem';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import TaskCounter from './components/TaskCounter';
+import uuid from 'uuid/v4';
 
 
 class App extends React.Component {
 
   state = {
     tasks: [
-      {task: 'Garden the plants', completed: false},
-      {task: 'Bath the cat', completed: false},
-      {task: 'Download some music', completed: false},
-      {task: 'Book the train tickets', completed: false},
-      {task: 'Call Mum', completed: false},
-      {task: 'Do the Shopping', completed: true},
-      {task: 'Mop up', completed: true},
+      { task: 'Garden the plants', completed: false, id: uuid() },
+      { task: 'Bath the cat', completed: false, id: uuid() },
+      { task: 'Download some music', completed: false,  id: uuid() },
+      { task: 'Book the train tickets', completed: false, id: uuid() },
+      { task: 'Call Mum', completed: false, id: uuid() },
+      { task: 'Do the Shopping', completed: true, id: uuid() },
+      { task: 'Mop up', completed: true, id: uuid() },
     ]
   }
 
   addTask = (newTask) => {
-    const newTasks = this.state.tasks.slice(); 
-    const taskObject = {task: newTask, completed: false}
+    const newTasks = this.state.tasks.slice();
+    const taskObject = { task: newTask, completed: false, id: uuid() }
     newTasks.push(taskObject);
     this.setState({
       tasks: newTasks
     });
   }
 
+  deleteTask = id => {
+    const filteredTasks = this.state.tasks.filter(item => {
+      if (item.id !== id) {
+        return true;
+       } else {
+          return false;
+        }
+      }
+    );
+
+    this.setState({
+      tasks: filteredTasks
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <div className="row">
-          <Header />
-          <Nav />
-        </div>
+        <div className='container'>
+          <div className="row">
+            <Header />
+            <Nav />
+          </div></div>
         <div className="row">
           <TaskCounter count={this.state.tasks.length} /></div>
-          <div className="container">        
+        <div className="container">
           <div className="row">
-          <AddItem addTask={this.addTask} />
+            <AddItem addTask={this.addTask} />
           </div>
           <div className="row">
             <div className="container">
               {
-                this.state.tasks.map(function (item, i) {
-                  return <ListItem key ={i} task={item} />;
+                this.state.tasks.map((item, i) => {
+                  return <ListItem 
+                  id={item.id}
+                  deleteTask={this.deleteTask}
+                  key={i} 
+                  task={item} />;
                 })}
-            </div>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }
