@@ -1,4 +1,5 @@
 import React from 'react';
+import './TaskCounter.css';
 
 class TaskCounter extends React.Component {
 
