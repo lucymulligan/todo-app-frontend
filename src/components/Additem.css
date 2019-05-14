@@ -1,8 +1,10 @@
 .inputNewToDo {
-    width: 800px;
+    width: 1200px;
     text-align: center;
 }
 
-.radioButtons {
-    padding: 40px
+.priorityButtons {
+    padding: 10px;
+    justify-content: center;
+    margin: auto;
 }
