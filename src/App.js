@@ -27,7 +27,7 @@ class App extends React.Component {
   componentWillMount() {
     axios.get("https://ndae8t0z37.execute-api.eu-west-2.amazonaws.com/dev/tasks")
     .then(response => {
-      this.setState({tasks: response.data});
+      this.setState({tasks: response.data.tasks});
     })
     .catch(error => {
       console.log(error);
