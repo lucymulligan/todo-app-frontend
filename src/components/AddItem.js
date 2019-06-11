@@ -32,12 +32,12 @@ class addItem extends React.Component {
                     </div></div>
 
                 <div className="priorityButtons">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-light">ASAP</button>
-                        <button type="button" class="btn btn-light">Soon</button>
-                        <button type="button" class="btn btn-light">Ongoing</button>
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" className="btn btn-light">ASAP</button>
+                        <button type="button" className="btn btn-light">Soon</button>
+                        <button type="button" className="btn btn-light">Ongoing</button>
                     </div>
-                    <button onClick={this.handleClick} class="btn btn-secondary">Add</button>
+                    <button onClick={this.handleClick} className="btn btn-secondary">Add</button>
                 </div>
             </div>
         );

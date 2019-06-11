@@ -20,10 +20,10 @@ class ListItem extends React.Component {
                     {this.props.task.task}
                 </div>
                 <div className="col-3">
-                    {this.props.task.completed ? <button class="btn btn-success">Completed :)</button> : <button onClick={this.handleCompleteClick} class="btn btn-info">To Complete</button>}
+                    {this.props.task.completed ? <button className="btn btn-success">Completed :)</button> : <button onClick={this.handleCompleteClick} className="btn btn-info">To Complete</button>}
                 </div>
                 <div className="col-3">
-                    {this.props.task.completed ? null : <button onClick={this.handleDeleteClick} class="btn btn-dark">Delete</button>}
+                    {this.props.task.completed ? null : <button onClick={this.handleDeleteClick} className="btn btn-dark">Delete</button>}
                 </div>
             </div>
         );

@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Nav from './components/Nav';
 import TaskCounter from './components/TaskCounter';
 import uuid from 'uuid/v4';
+import axios from 'axios';
 
 
 
@@ -15,12 +16,22 @@ class App extends React.Component {
     tasks: [
       { task: 'Garden the plants', completed: false, id: uuid() },
       { task: 'Bath the cat', completed: false, id: uuid() },
-      { task: 'Download some music', completed: false,  id: uuid() },
+      { task: 'Download some music', completed: false, id: uuid() },
       { task: 'Book the train tickets', completed: false, id: uuid() },
       { task: 'Call Mum', completed: false, id: uuid() },
       { task: 'Do the Shopping', completed: true, id: uuid() },
       { task: 'Mop up', completed: true, id: uuid() },
     ]
+  }
+
+  componentWillMount() {
+    axios.get("https://ndae8t0z37.execute-api.eu-west-2.amazonaws.com/dev/tasks")
+    .then(response => {
+      this.setState({tasks: response.data});
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   addTask = (newTask) => {
@@ -36,10 +47,10 @@ class App extends React.Component {
     const filteredTasks = this.state.tasks.filter(item => {
       if (item.id !== id) {
         return true;
-       } else {
-          return false;
-        }
+      } else {
+        return false;
       }
+    }
     );
 
     this.setState({
@@ -50,9 +61,9 @@ class App extends React.Component {
   markTaskCompleted = id => {
     const updatedTasks = this.state.tasks.map((item) => {
       if (item.id === id) {
-        item.completed = true; 
+        item.completed = true;
       }
-      return item; 
+      return item;
     })
     this.setState({
       tasks: updatedTasks
@@ -77,12 +88,12 @@ class App extends React.Component {
             <div className="container">
               {
                 this.state.tasks.map((item, i) => {
-                  return <ListItem 
-                  id={item.id}
-                  deleteTask={this.deleteTask}
-                  key={i} 
-                  markTaskCompleted={this.markTaskCompleted}
-                  task={item} />;
+                  return <ListItem
+                    id={item.id}
+                    deleteTask={this.deleteTask}
+                    key={i}
+                    markTaskCompleted={this.markTaskCompleted}
+                    task={item} />;
                 })}
             </div>
           </div>
