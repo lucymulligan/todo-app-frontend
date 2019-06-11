@@ -14,16 +14,10 @@ class App extends React.Component {
 
   state = {
     tasks: [
-      { task: 'Garden the plants', completed: false, id: uuid() },
-      { task: 'Bath the cat', completed: false, id: uuid() },
-      { task: 'Download some music', completed: false, id: uuid() },
-      { task: 'Book the train tickets', completed: false, id: uuid() },
-      { task: 'Call Mum', completed: false, id: uuid() },
-      { task: 'Do the Shopping', completed: true, id: uuid() },
-      { task: 'Mop up', completed: true, id: uuid() },
-    ]
+    ],
   }
-
+//starts off empty, once data is recieved, tasks will be populated
+  
   componentWillMount() {
     axios.get("https://ndae8t0z37.execute-api.eu-west-2.amazonaws.com/dev/tasks")
     .then(response => {
